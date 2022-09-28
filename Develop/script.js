@@ -1,24 +1,25 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var characters = ["lowercase letters", "uppercase letters", "numbers", "special characters"]
 
+//Added array so can create a for loop for DRY
+var characters = ["lowercase letters", "UPPERCASE letters", "numbers", "special characters"]
+
+//Created function so prompts would happen at button click.
+function create(){
+    //Added prompt for password length
 prompt("Choose length of password between 8 and 128 characters.");
+  //Added for loop for other questions and to avoid having to repeat code 4x
+  for (var i = 0; i < 4; i++) {
+confirm("Click OK to include " + characters[i] + ", otherwise click Cancel.");
+}
+}
 
-for (var i = 0; i < 5; i++) {
-confirm("Click OK to include " + charcters + " otherwise click Cancel.");
 
-// if (confirm("Click OK to include " + charcters + " otherwise click Cancel.") == true) {
+// for if (confirm("Click OK to include " + characters + " otherwise click Cancel.") == true) {
 //   text = "I'll include it!";
 // } else {
 //   text = "It won't be included.";
 // }
-}
-
-// confirm("Click OK to include UPPERCASE letters otherwise click Cancel.");
-
-// confirm("Click OK to include numbers otherwise click Cancel.");
-
-// confirm("Click OK to include special characters otherwise click Cancel.");
 
 
 // Write password to the #password input
