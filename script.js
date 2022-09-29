@@ -4,9 +4,10 @@ var generateBtn = document.querySelector("#generate");
 //global variables
 var finalPassword = ""
 var length = 0
-var uppercase = [//array of uppercase]
-var lowercase = [//array of lowercase]
-var special = [//arrray of special]
+var lowercase = "abcdefghijklmnopqrstuvwxyz"
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var numbers = "0123456789"
+var special = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 
 
@@ -26,7 +27,6 @@ function writePassword() {
     //TODO: check length (between 8-128)
     if (userChoice<8 || userChoice>128) {
       alert("Please choose between 8 and 128 characters.")
-      return
      }
     //TODO: confirm for types of characters
     
@@ -35,11 +35,26 @@ function writePassword() {
   var characters = ["lowercase letters", "UPPERCASE letters", "numbers", "special characters"]for (var i = 0; i < 4; i++) {
     confirm("Click OK to include " + characters[i] + ", otherwise click Cancel.")
  } 
+
  }
     console.log (options)
+    function store (characters) {
+      if (characters[0]) {
+        // include lowercase
+      }
+      if (characters[1]) {
+        //include uppercase
+      }
+      if (characters[2]) {
+       //include numbers
+      }
+      if (characters[3])
+        //include special characters
+    }
     //TODO: store the responses- should have a series of booleans
     //TODO: based on the responses trim/build available pool of characters. add variables accordingly
     //TODO: build password character by character
+
     //TODO: generate random int within range of available chars length
     //TODO: add char to finalPassword
     //TODO: do until length===desired password length
