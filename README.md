@@ -29,30 +29,26 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-TODO: ## Installation
+## Usage
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Click on link to page then click "Generate Password" button to start prompts.
+Follow prompts and password will appear on screen.
 
-TODO:## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+### Screenshots
 
-    TODO: ### Screenshots
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+![Screenshot of deployed page](Screenshot.png)
 
-![alt text](assets/images/screenshot.png)
+### Deployed Website
 
-    TODO: ### Deployed Website
+https://felishayumacias.github.io/JavaScript-Challenge-Password-Generator/
 
-    <!-- insert link here -->
+## Credits
 
-TODO:## Credits
+https://www.w3schools.com/jsref/jsref_operators.asp
 
-List your collaborators, if any, with links to their GitHub profiles.
+https://www.w3schools.com/jsref/jsref_charat.asp
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
 
 ## License
 
