@@ -2,67 +2,73 @@
 var generateBtn = document.querySelector("#generate");
 
 //global variables
-var finalPassword = ""
-var length = 0
-var lowercase = "abcdefghijklmnopqrstuvwxyz"
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var lowercaseLetters = "abcdefghijklmnopqrstuvwxyz"
+var uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var numbers = "0123456789"
-var special = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var specialChar = " !\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var passwordOptions = ""
+var finalPassword = ""
 
 
 
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
-}
-
-  function generatePassword (){
-    //prompt user for length
-    var userChoice = prompt("Choose length of password between 8 and 128 characters.")
-    console.log (length)
-    //TODO: check length (between 8-128)
-    if (userChoice<8 || userChoice>128) {
-      alert("Please choose between 8 and 128 characters.")
-     }
-    //TODO: confirm for types of characters
-    
-     //Added for loop for other questions and to avoid having to repeat code 4x
- function options() {
-  var characters = ["lowercase letters", "UPPERCASE letters", "numbers", "special characters"]for (var i = 0; i < 4; i++) {
-    confirm("Click OK to include " + characters[i] + ", otherwise click Cancel.")
- } 
-
- }
-    console.log (options)
-    function store (characters) {
-      if (characters[0]) {
-        // include lowercase
-      }
-      if (characters[1]) {
-        //include uppercase
-      }
-      if (characters[2]) {
-       //include numbers
-      }
-      if (characters[3])
-        //include special characters
+function generatePassword (){
+  //prompt user for length they want 
+  var length = prompt("Choose length of password between 8 and 128 characters.")
+  console.log (length)
+  //make sure length is between 8-128 and alert if not
+  if (length<8 || length>128) {
+    alert("Please choose between 8 and 128 characters.")
+    return
+  }
+  
+  //confirm for types of characters user wants to include
+  var lowercase = confirm ("Click OK to include lowercase letters, otherwise click Cancel.")
+  var uppercase = confirm ("Click OK to include UPPERCASE LETTERS, otherwise click Cancel.")
+  var num = confirm ("Click OK to include numbers, otherwise click Cancel.")
+  var special = confirm ("Click OK to include special characters, otherwise click Cancel.")
+  console.log(lowercase,uppercase,num,special)
+  //Make sure they choose at least one type of character and alert if not
+     if (!lowercase && !uppercase && !num && !special) {
+      alert("Please choose at least one type of character to include in password.")
     }
-    //TODO: store the responses- should have a series of booleans
-    //TODO: based on the responses trim/build available pool of characters. add variables accordingly
-    //TODO: build password character by character
-
-    //TODO: generate random int within range of available chars length
-    //TODO: add char to finalPassword
-    //TODO: do until length===desired password length
-
+    
+    //based on the responses trim/build available pool of characters. add variables accordingly
+    if (lowercase) {
+      passwordOptions += lowercaseLetters
+      }
+    if (uppercase) {
+      passwordOptions += uppercaseLetters
+    }
+    if (num) {
+      passwordOptions += numbers
+    }
+    if (special) {
+      passwordOptions += specialChar
+    }
+    // build password character by character  
+    // generate random int within range of available chars length
+    // add char to finalPassword
+    // do until length===desired password length
+    for (var i = 0; i < length; i++) {
+      finalPassword +=(passwordOptions.charAt(Math.floor(Math.random()*passwordOptions.length)))
+    }
     return finalPassword
   }
 
-generatePassword
+  // Write password to the #password input
+  function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+  
+    passwordText.value = password;
+  
+  }
 
+generatePassword
+console.log(generatePassword)
+
+writePassword
+console.log(writePassword)
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
