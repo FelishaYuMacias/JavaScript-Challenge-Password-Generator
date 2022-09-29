@@ -5,6 +5,8 @@ var numCharacters = "Choose length of password between 8 and 128 characters."
 //Added array so can create a for loop for DRY
 var characters = ["lowercase letters", "UPPERCASE letters", "numbers", "special characters"]
 
+var length = for [(var i=9; i<129; i++)]
+
 //Created function so prompts would happen at button click.
 function create(){
     //Added prompt for password length
